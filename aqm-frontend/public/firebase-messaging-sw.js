@@ -7,12 +7,12 @@ importScripts('https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging-compa
 
 // TODO: Replace with your actual Firebase configuration (same as firebase-config.js)
 firebase.initializeApp({
-    apiKey: "YOUR_API_KEY_HERE",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyC1XK43wQGorijOPhm_QRioFn27mfF-0fk",
+    authDomain: "aqm-notifications.firebaseapp.com",
+    projectId: "aqm-notifications",
+    storageBucket: "aqm-notifications.firebasestorage.app",
+    messagingSenderId: "550505067458",
+    appId: "1:550505067458:web:7ca5d4f83765e2c4e9dc5b"
 });
 
 const messaging = firebase.messaging();

@@ -56,7 +56,7 @@ export default function AiChatWidget() {
     // --- FIX: Ensure we use the correct backend port (5005) ---
     let BASE_URL = process.env.REACT_APP_API_URL;
     if (!BASE_URL) {
-        BASE_URL = "http://localhost:5005/api";
+      BASE_URL = "http://localhost:5005/api";
     }
 
     try {
@@ -127,13 +127,13 @@ export default function AiChatWidget() {
     <div>
       {/* FIX: Removed the typo 'img' attribute from this button */}
       <button className="chat-toggle-btn" onClick={toggleChat}>
-        <img src="/Images/chat.svg" alt="chat"></img>
+        <img src={`${process.env.PUBLIC_URL}/Images/chat.svg`} alt="chat"></img>
       </button>
 
       {isOpen && (
         <div className="chat-box">
           <div className="chat-header">
-            <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <span>ИИ-консультант ICPAIR</span>
               {fallbackActive && (
                 <span className="tooltip-container">
@@ -142,7 +142,7 @@ export default function AiChatWidget() {
                 </span>
               )}
             </div>
-            <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               {process.env.NODE_ENV !== 'production' && (
                 <span className="tooltip-container">
                   <button className="settings-toggle" onClick={() => setShowSettings(s => !s)} title="Dev settings">⚙</button>
@@ -157,7 +157,7 @@ export default function AiChatWidget() {
             <div className="settings-panel">
               <label>Dev API key (OpenRouter)</label>
               <input type="password" value={apiKey} onChange={(e) => setApiKey(e.target.value)} placeholder="sk-..." />
-              <div style={{display:'flex', gap:'8px', marginTop:'6px'}}>
+              <div style={{ display: 'flex', gap: '8px', marginTop: '6px' }}>
                 <button className="save-btn" onClick={saveApiKey}>Save</button>
                 <button className="save-btn" onClick={() => { setApiKey(''); localStorage.removeItem('OPENROUTER_API_KEY_DEV'); }}>Clear</button>
               </div>

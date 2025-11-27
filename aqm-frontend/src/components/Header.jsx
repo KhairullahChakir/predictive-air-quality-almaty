@@ -25,7 +25,7 @@ const Header = ({ onOpenModal, onOpenLoginModal }) => {
   return (
     <header className={`cyber-header ${scrolled ? "scrolled" : ""}`}>
       <div className="logo">
-        <img src="/Images/Logo-v2.svg" alt="ICPAIR Logo" className="logo-img" />
+        <img src={`${process.env.PUBLIC_URL}/Images/Logo-v2.svg`} alt="ICPAIR Logo" className="logo-img" />
       </div>
 
       <button className="burger" onClick={toggleMenu}>

@@ -94,7 +94,7 @@ function AppContent() {
                 if (payload.notification) {
                     new Notification(payload.notification.title, {
                         body: payload.notification.body,
-                        icon: '/Images/Logo-v2.svg'
+                        icon: `${process.env.PUBLIC_URL}/Images/Logo-v2.svg`
                     });
                 }
             }
@@ -140,7 +140,7 @@ function AppContent() {
                             {/* Left: Image with Cyber Overlay */}
                             <div className="cyber-image-card">
                                 <div className="cyber-frame">
-                                    <img src="/Images/air-pollution.png" alt="Smog in Almaty" />
+                                    <img src={`${process.env.PUBLIC_URL}/Images/air-pollution.png`} alt="Smog in Almaty" />
                                     <div className="scan-line"></div>
                                     <div className="hud-overlay">
 
@@ -209,7 +209,7 @@ function AppContent() {
                                             <span className="chart-count">61 ответ</span>
                                         </div>
                                         <div className="chart-wrapper">
-                                            <img src="/Images/grafik.jpg" alt="Статистика" />
+                                            <img src={`${process.env.PUBLIC_URL}/Images/grafik.jpg`} alt="Статистика" />
                                         </div>
                                     </div>
                                 </div>
@@ -219,7 +219,7 @@ function AppContent() {
                                     <p className="survey-text">{t('survey_result')}</p>
                                     <p className="qr-title">{t('join_network')}</p>
                                     <div className="qr-code">
-                                        <img src="/Images/qr.png" alt="QR Code" />
+                                        <img src={`${process.env.PUBLIC_URL}/Images/qr.png`} alt="QR Code" />
                                     </div>
                                 </div>
                             </div>
@@ -269,7 +269,7 @@ function AppContent() {
 
 export default function App() {
     return (
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
             <LanguageProvider>
                 <AppContent />
             </LanguageProvider>

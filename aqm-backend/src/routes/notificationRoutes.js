@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 const firebaseService = require('../services/firebaseService');
-const db = require('../config/database'); // Assuming you have a database config
+const db = require('../db'); // Correct path to database config
 
 /**
  * POST /api/notifications/subscribe

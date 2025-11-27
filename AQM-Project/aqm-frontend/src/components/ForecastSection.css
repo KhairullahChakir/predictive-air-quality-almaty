@@ -1,0 +1,147 @@
+/* --- MAIN CONTAINER --- */
+.forecast-container {
+    /* Dark Glass Effect */
+    background: rgba(30, 41, 59, 0.7); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    
+    border: 1px solid #334155;
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    color: white;
+}
+
+/* --- HEADER --- */
+.forecast-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 20px;
+}
+
+.header-title {
+    text-align: left;
+}
+
+.section-label {
+    font-family: 'Courier New', monospace;
+    color: #00d2d3; /* Neon Cyan */
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.neon-text {
+    margin: 0;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 0 20px rgba(0, 210, 211, 0.2);
+}
+
+/* --- SELECT DROPDOWN --- */
+.cyber-select {
+    background: #0f172a;
+    color: #fff;
+    border: 1px solid #334155;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.cyber-select:hover, .cyber-select:focus {
+    border-color: #00d2d3;
+    box-shadow: 0 0 15px rgba(0, 210, 211, 0.2);
+}
+
+/* --- GRID LAYOUT --- */
+.forecast-grid {
+    display: grid;
+    /* Auto-fit columns (min 120px wide) */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+}
+
+/* --- DAY CARDS --- */
+.day-card {
+    background: #1e293b; /* Dark Slate */
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 20px 10px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.day-card:hover {
+    transform: translateY(-5px);
+    background: #263344;
+    border-color: #94a3b8;
+}
+
+/* --- ACTIVE CARD (TODAY) --- */
+.day-card.active {
+    background: linear-gradient(145deg, #0f172a, #1e293b);
+    border: 2px solid #00d2d3; /* Cyan Border */
+    box-shadow: 0 0 20px rgba(0, 210, 211, 0.15);
+}
+
+/* --- CARD CONTENT --- */
+.day-name {
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.day-date {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin-bottom: 15px;
+}
+
+.weather-icon {
+    margin-bottom: 15px;
+}
+
+.aqi-value {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+}
+
+.aqi-label {
+    font-size: 0.7rem;
+    color: #64748b;
+    margin-top: 5px;
+}
+
+/* --- STATUS COLORS --- */
+.day-card.glow-green .aqi-value { color: #2ed573; }
+.day-card.glow-orange .aqi-value { color: #ffa502; }
+.day-card.glow-red .aqi-value { color: #ff4757; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .forecast-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .forecast-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 per row on mobile */
+    }
+}

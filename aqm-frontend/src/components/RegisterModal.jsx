@@ -57,7 +57,7 @@ const RegisterModal = ({ isOpen, onClose, onSwitchToLogin }) => {
         </div>
 
         <div className="login-google-auth">
-          <img src="/Images/google-icon.svg" alt="Google" className="login-google-icon" />
+          <img src={`${process.env.PUBLIC_URL}/Images/google-icon.svg`} alt="Google" className="login-google-icon" />
           <span>С помощью Google</span>
         </div>
 

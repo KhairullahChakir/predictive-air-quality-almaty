@@ -71,8 +71,8 @@ class NotificationService {
         try {
             const notification = new Notification(title, {
                 body,
-                icon: "/Images/Logo-v2.svg",
-                badge: "/Images/Logo-v2.svg",
+                icon: `${process.env.PUBLIC_URL}/Images/Logo-v2.svg`,
+                badge: `${process.env.PUBLIC_URL}/Images/Logo-v2.svg`,
                 tag: options.tag || "air-quality",
                 requireInteraction: false,
                 silent: false,

@@ -42,12 +42,12 @@ const Sidebar = ({ onLogout, onSectionChange, isAdmin = false }) => {
   return (
     <>
       <div className="sidebar-toggle" onClick={toggleSidebar}>
-        <img src="/Images/user-sidebar.svg" alt="Меню" className="menu-icon" />
+        <img src={`${process.env.PUBLIC_URL}/Images/user-sidebar.svg`} alt="Меню" className="menu-icon" />
       </div>
 
       <aside className={`sidebar ${isOpen ? "open" : "collapsed"}`}>
         <div className="sidebar-logo">
-          <img src="/Images/Logo-v2.svg" alt="ICPAIR Logo" />
+          <img src={`${process.env.PUBLIC_URL}/Images/Logo-v2.svg`} alt="ICPAIR Logo" />
         </div>
 
         <nav className="sidebar-nav">
@@ -77,7 +77,7 @@ const Sidebar = ({ onLogout, onSectionChange, isAdmin = false }) => {
                 </li>
                 <li>
                   <img
-                    src="/Images/shop-icon.svg"
+                    src={`${process.env.PUBLIC_URL}/Images/shop-icon.svg`}
                     alt="Магазин"
                     className="sidebar-shop-btn"
                     onClick={handleShopClick}

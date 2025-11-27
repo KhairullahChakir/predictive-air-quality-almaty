@@ -7,7 +7,7 @@ const UserFooter = () => (
     <div className="user-footer-container">
       <div className="user-footer-section">
         <div className="logo">
-        <img src="/Images/Logo-v2.svg" alt="ICPAIR" className="logo-img" />
+          <img src={`${process.env.PUBLIC_URL}/Images/Logo-v2.svg`} alt="ICPAIR" className="logo-img" />
         </div>
         <p>ICPAIR – следи за качеством воздуха в режиме реального времени. Данные о загрязнении, прогнозы и аналитика для жителей города.</p>
         <p className="copyright">© 2025 ICPAIR. Все права защищены. 🌍💙</p>
@@ -17,8 +17,8 @@ const UserFooter = () => (
 
       <div className="user-footer-section">
         <h3>Мы в соцсетях:</h3>
-        <p>Instagram <img className="icon" src="/Images/instagram.png" alt="Instagram" /></p>
-        <p>Telegram <img className="icon" src="/Images/telegram.png" alt="Telegram" /></p>
+        <p>Instagram <img className="icon" src={`${process.env.PUBLIC_URL}/Images/instagram.png`} alt="Instagram" /></p>
+        <p>Telegram <img className="icon" src={`${process.env.PUBLIC_URL}/Images/telegram.png`} alt="Telegram" /></p>
       </div>
 
       <div className="user-footer-divider"></div>

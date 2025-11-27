@@ -4,10 +4,10 @@ import { useLanguage } from "../contexts/LanguageContext";
 import "./SensorCatalog.css";
 
 const sensors = [
-  { id: 1, name: "ICPAIR 1.0", image: "/Images/sensor1.svg" },
-  { id: 2, name: "ICPAIR 2.0", image: "/Images/sensor1.svg" },
-  { id: 3, name: "ICPAIR Pro", image: "/Images/sensor1.svg" },
-  { id: 4, name: "ICPAIR Ultra", image: "/Images/sensor1.svg" }
+  { id: 1, name: "ICPAIR 1.0", image: `${process.env.PUBLIC_URL}/Images/sensor1.svg` },
+  { id: 2, name: "ICPAIR 2.0", image: `${process.env.PUBLIC_URL}/Images/sensor1.svg` },
+  { id: 3, name: "ICPAIR Pro", image: `${process.env.PUBLIC_URL}/Images/sensor1.svg` },
+  { id: 4, name: "ICPAIR Ultra", image: `${process.env.PUBLIC_URL}/Images/sensor1.svg` }
 ];
 
 export default function SensorCatalog() {
@@ -20,7 +20,7 @@ export default function SensorCatalog() {
         <div className="sensor-catalog-info">
           <div className="icon-wrapper">
             {/* Applied a class to handle SVG color in dark mode */}
-            <img src="/Images/catalog-icon.svg" alt="Catalog Icon" className="catalog-image" />
+            <img src={`${process.env.PUBLIC_URL}/Images/catalog-icon.svg`} alt="Catalog Icon" className="catalog-image" />
           </div>
           <div className="text-content">
             <h2>{t('catalog_title')}</h2>

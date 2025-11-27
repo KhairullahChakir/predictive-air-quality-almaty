@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-section">
           <div className="logo">
-            <img src="/Images/Logo-v2.svg" alt="ICPAIR" className="logo-img" />
+            <img src={`${process.env.PUBLIC_URL}/Images/Logo-v2.svg`} alt="ICPAIR" className="logo-img" />
           </div>
           <p>{t('footer_desc')}</p>
           <p className="copyright">{t('copyright')} 🌍💙</p>
@@ -19,8 +19,8 @@ const Footer = () => {
 
         <div className="footer-section">
           <h3>{t('socials')}</h3>
-          <p>Instagram <img className="icon" src="/Images/instagram.png" alt="Instagram" /></p>
-          <p>Telegram <img className="icon" src="/Images/telegram.png" alt="Telegram" /></p>
+          <p>Instagram <img className="icon" src={`${process.env.PUBLIC_URL}/Images/instagram.png`} alt="Instagram" /></p>
+          <p>Telegram <img className="icon" src={`${process.env.PUBLIC_URL}/Images/telegram.png`} alt="Telegram" /></p>
         </div>
 
         <div className="footer-divider"></div>

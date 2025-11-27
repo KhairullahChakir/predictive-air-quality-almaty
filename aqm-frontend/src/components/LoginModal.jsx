@@ -73,7 +73,7 @@ const LoginModal = ({ isOpen, onClose, onSwitchToRegister }) => {
 
                 <div className="login-google-auth">
                     <img
-                        src="/Images/google-icon.svg"
+                        src={`${process.env.PUBLIC_URL}/Images/google-icon.svg`}
                         alt="Google"
                         className="login-google-icon"
                     />
