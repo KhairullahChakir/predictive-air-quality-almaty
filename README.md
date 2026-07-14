@@ -1,148 +1,110 @@
-# Air Quality Monitoring (AQM) Project
+# Predictive Air Quality System (Almaty)
 
-## Table of Contents
-- [Project Overview](#project-overview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Backend (Node.js / Express)](#backend-nodejs--express)
-- [Frontend (React)](#frontend-react)
-- [Database & Seeding](#database--seeding)
-- [Running the Application Locally](#running-the-application-locally)
-- [API Endpoints](#api-endpoints)
-- [Development Workflow](#development-workflow)
-- [Contributing](#contributing)
-- [License](#license)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Node.js](https://img.shields.io/badge/Node.js-18.x-green.svg)](https://nodejs.org/)
+[![React](https://img.shields.io/badge/React-Vite-blue.svg)](https://reactjs.org/)
 
----
+## 📖 Overview
+The **Predictive Air Quality System** is a comprehensive, full-stack web application designed to monitor, visualize, and predict air quality metrics (PM2.5 and PM10) across Almaty, Kazakhstan. 
 
-## Project Overview
-The **Air Quality Monitoring (AQM)** project is a full‑stack web application that allows users to view real‑time and historical air‑quality data, submit complaints, and get predictions for PM2.5 and PM10 levels. The backend is built with **Node.js** and **Express**, while the frontend uses **React** (Vite) with modern UI/UX design.
+Built with a scalable **Node.js/Express** backend and a responsive **React (Vite)** frontend, this system empowers citizens to view real-time data, analyze historical trends, file environmental complaints, and interact with an AI-driven chatbot powered by Google Gemini.
 
-## Features
-- **Real‑time dashboard** showing current AQI, PM2.5, and PM10 values.
-- **Historical data visualization** with charts for selected date ranges.
-- **Complaint system** – users can file complaints about air‑quality issues (see `aqm-backend/src/models/Complaint.js`).
-- **Prediction API** – LightGBM model predicts future PM values.
-- **Multi‑language support** via `LanguageContext`.
-- **Responsive design** with a sleek dark‑mode aesthetic.
+## ✨ Features
+* **Real-time Monitoring**: Live dashboard displaying current AQI, PM2.5, and PM10 values.
+* **AI Predictions**: Integration with a LightGBM machine learning model to forecast future particulate matter levels.
+* **Interactive AI Assistant**: Chat with a Google Gemini-powered bot to get contextual air quality advice.
+* **Historical Data Visualization**: Interactive charts for selected date ranges.
+* **Citizen Reporting**: Integrated complaint system for reporting localized air quality issues.
+* **Localization**: Multi-language support (English, Russian, Kazakh) built into the frontend context.
+* **Modern UI/UX**: Responsive design with a sleek dark-mode aesthetic for accessibility and comfort.
 
-## Tech Stack
-| Layer | Technology |
-|-------|------------|
-| Backend | Node.js, Express, Sequelize (or any ORM you prefer), dotenv |
-| Frontend | React (Vite), JavaScript, CSS (vanilla) |
-| Database | SQLite (development) – can be swapped for Postgres/MySQL |
-| Model | LightGBM (Python) – called via a micro‑service or script |
-| CI/CD | (optional) GitHub Actions |
+## 🚀 Technologies Used
+* **Frontend**: React.js, Vite, Vanilla CSS, JavaScript
+* **Backend**: Node.js, Express.js
+* **Database**: SQLite (Development) – Ready for migration to PostgreSQL/MySQL
+* **Machine Learning**: LightGBM (Python) 
+* **AI Integration**: Google Gemini API
+* **Containerization**: Docker & Docker Compose
 
----
+## 📁 Project Structure
+```text
+predictive-air-quality-almaty/
+├── aqm-backend/            # Node.js & Express server
+│   ├── src/
+│   │   ├── models/         # Database schemas (e.g., Complaint.js)
+│   │   ├── routes/         # API endpoints (/chat, /complaints, /predict)
+│   │   └── controllers/    # Route logic
+│   ├── scripts/            # Database seeding scripts
+│   └── package.json
+├── aqm-frontend/           # React frontend application (Vite)
+│   ├── src/
+│   │   ├── components/     # Reusable UI components
+│   │   ├── context/        # State management (LanguageContext.js)
+│   │   └── App.jsx         # Main application entry
+│   └── package.json
+├── docker-compose.yml      # Docker orchestration
+├── .gitignore              # Git ignore rules
+├── LICENSE                 # MIT License
+└── README.md               # Project documentation
+```
 
-## Backend (`aqm-backend`)
+## 📸 Screenshots
+*(Screenshots coming soon - placeholder for dashboard, prediction view, and chat interface)*
+
+## 🛠️ Installation & Setup
+
 ### Prerequisites
-- **Node.js** ≥ 18
-- **npm** (comes with Node)
-- **SQLite** (bundled, no extra install needed for dev)
+* **Node.js** (v18 or higher)
+* **npm** (Node Package Manager)
 
-### Setup
+### 1. Backend Setup
 ```bash
-# Navigate to the backend folder
+# Navigate to the backend directory
 cd aqm-backend
 
 # Install dependencies
 npm install
 
-# Copy the example env file and set your variables
+# Setup environment variables
 cp .env.example .env
-# Edit .env and add your Google AI Studio API key, DB path, etc.
+# Edit .env with your Google Gemini API key and Database paths
+
+# Seed the database (districts and sample complaints)
+npm run seed
+
+# Start the development server (runs on port 5000)
+npm run dev
 ```
 
-### Database & Seeding
-The project ships with a simple seeding script to populate districts and sample complaints.
+### 2. Frontend Setup
 ```bash
-npm run seed   # runs scripts/seedDistricts.js and other seeders
-```
-
-### Development Server
-```bash
-npm run dev   # Starts the Express server on http://localhost:5000 (default)
-```
-The server includes the following key routes (see `aqm-backend/src/routes`):
-- `POST /chat` – forwards messages to Google Gemini.
-- `GET /complaints` – list complaints.
-- `POST /complaints` – create a new complaint.
-- `GET /predict` – returns PM2.5/PM10 predictions.
-
----
-
-## Frontend (`aqm-frontend`)
-### Prerequisites
-- **Node.js** ≥ 18
-- **npm**
-
-### Setup
-```bash
+# In a new terminal, navigate to the frontend directory
 cd aqm-frontend
+
+# Install dependencies
 npm install
+
+# Start the Vite development server (runs on port 3000)
+npm run dev
 ```
 
-### Development Server
-```bash
-npm run dev   # Vite dev server on http://localhost:3000
-```
-The frontend expects the backend API at `http://localhost:5000`. You can change the base URL in `src/config.js` if needed.
+### 3. Usage
+Once both servers are running, open your browser and navigate to:
+**[http://localhost:3000](http://localhost:3000)**
 
-### Key Components
-- `ForecastSection.jsx` – displays prediction cards.
-- `ModalComplaint.css` – styling for the complaint modal.
-- `LanguageContext.js` – provides i18n support.
-- `components/*` – reusable UI pieces.
+## 🔮 Future Improvements
+* **Mobile Application**: Port the responsive web view into a native Flutter application.
+* **Database Migration**: Transition from SQLite to PostgreSQL for robust production deployment.
+* **IoT Sensor Integration**: Directly ingest live data streams from localized Arduino/Raspberry Pi air sensors.
+* **Automated CI/CD**: Implement GitHub Actions for automated testing and deployment.
 
----
-
-## Running the Full Stack Locally
-1. **Start the backend** (in one terminal):
-   ```bash
-   cd aqm-backend && npm run dev
-   ```
-2. **Start the frontend** (in another terminal):
-   ```bash
-   cd aqm-frontend && npm run dev
-   ```
-3. Open your browser at `http://localhost:3000`.
-
----
-
-## API Endpoints
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `POST` | `/chat` | Sends a user message to Gemini and returns the response. |
-| `GET` | `/complaints` | Retrieves all complaints. |
-| `POST` | `/complaints` | Creates a new complaint (JSON body). |
-| `GET` | `/predict?city=...&date=...&hour=...` | Returns PM2.5/PM10 predictions for the given parameters. |
-
----
-
-## Development Workflow
-1. **Branching** – create a feature branch from `main`.
-2. **Linting** – run `npm run lint` (ESLint) before committing.
-3. **Testing** – backend tests with Jest (`npm test`), frontend with Vitest.
-4. **Pull Requests** – ensure CI passes before merging.
-
----
-
-## Contributing
-Contributions are welcome! Please follow these steps:
+## 🤝 Contributing
+Contributions are always welcome! Please follow these steps:
 1. Fork the repository.
-2. Create a feature branch.
-3. Write clear commit messages.
-4. Open a PR with a description of the changes.
-5. Ensure all linting and tests pass.
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the branch (`git push origin feature/AmazingFeature`).
+5. Open a Pull Request.
 
----
-
-## License
-This project is licensed under the **MIT License** – see the `LICENSE` file for details.
-
----
-
-
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
